@@ -409,6 +409,7 @@ export type RouteNavigate = QRL<(path?: string | number, options?: {
     forceReload?: boolean;
     replaceState?: boolean;
     scroll?: boolean;
+    cacheBuster?: string;
 } | boolean) => Promise<void>>;
 
 // @public (undocumented)

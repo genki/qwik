@@ -44,18 +44,14 @@ export const Link = component$<LinkProps>((props) => {
         }
 
         if (elm && elm.href) {
-          let href = elm.href;
-          if (elm.hasAttribute('data-cacheBuseter')) {
-            const separator = href.includes('?') ? '&' : '?';
-            href += `${separator}${elm.getAttribute('data-cacheBuseter')}`;
-          }
-          const url = new URL(href);
+          const url = new URL(elm.href);
           prefetchSymbols(url.pathname);
 
           if (elm.hasAttribute('data-prefetch')) {
             loadClientData(url, elm, {
               prefetchSymbols: false,
               isPrefetch: true,
+              cacheBuster: elm.dataset.cachebuster,
             });
           }
         }
@@ -90,7 +86,7 @@ export const Link = component$<LinkProps>((props) => {
       {...linkProps}
       onClick$={[preventDefault, onClick$, handleClick]}
       data-prefetch={prefetchData}
-      data-cacheBuseter={cacheBuster}
+      data-cachebuster={cacheBuster}
       onMouseOver$={[linkProps.onMouseOver$, handlePrefetch]}
       onFocus$={[linkProps.onFocus$, handlePrefetch]}
       // Don't prefetch on visible in dev mode

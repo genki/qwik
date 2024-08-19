@@ -151,6 +151,7 @@ export const QwikCityProvider = component$<QwikCityProps>((props) => {
       forceReload = path === undefined, // Hack for nav() because this API is already set.
       replaceState = false,
       scroll = true,
+      cacheBuster = undefined,
     } = typeof opt === 'object' ? opt : { forceReload: opt };
     if (typeof path === 'number') {
       if (isBrowser) {
@@ -195,7 +196,7 @@ export const QwikCityProvider = component$<QwikCityProps>((props) => {
     routeInternal.value = { type, dest, forceReload, replaceState, scroll };
 
     if (isBrowser) {
-      loadClientData(dest, _getContextElement());
+      loadClientData(dest, _getContextElement(), { cacheBuster });
       loadRoute(qwikCity.routes, qwikCity.menus, qwikCity.cacheModules, dest.pathname);
     }
 

@@ -2122,6 +2122,7 @@ export type RouteNavigate = QRL<
           forceReload?: boolean;
           replaceState?: boolean;
           scroll?: boolean;
+          cacheBuster?: string;
         }
       | boolean,
   ) => Promise<void>
