@@ -12,10 +12,12 @@ export const loadClientData = async (
     clearCache?: boolean;
     prefetchSymbols?: boolean;
     isPrefetch?: boolean;
+    cacheBuster?: string;
   }
 ) => {
   const pagePathname = url.pathname;
-  const pageSearch = url.search;
+  const pageSearch =
+    url.search + (opts?.cacheBuster ? (url.search ? '&_=' : '?_=') + opts.cacheBuster : '');
   const clientDataPath = getClientDataPath(pagePathname, pageSearch, opts?.action);
   let qData: Promise<ClientPageData | undefined> | undefined;
   if (!opts?.action) {

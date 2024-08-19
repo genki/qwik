@@ -16,6 +16,7 @@ export const Link = component$<LinkProps>((props) => {
     reload,
     replaceState,
     scroll,
+    cacheBuster,
     ...linkProps
   } = (() => props)();
   const clientNavPath = untrack(() => getClientNavPath({ ...linkProps, reload }, loc));
@@ -43,7 +44,12 @@ export const Link = component$<LinkProps>((props) => {
         }
 
         if (elm && elm.href) {
-          const url = new URL(elm.href);
+          let href = elm.href;
+          if (elm.hasAttribute('data-cacheBuseter')) {
+            const separator = href.includes('?') ? '&' : '?';
+            href += `${separator}${elm.getAttribute('data-cacheBuseter')}`;
+          }
+          const url = new URL(href);
           prefetchSymbols(url.pathname);
 
           if (elm.hasAttribute('data-prefetch')) {
@@ -84,6 +90,7 @@ export const Link = component$<LinkProps>((props) => {
       {...linkProps}
       onClick$={[preventDefault, onClick$, handleClick]}
       data-prefetch={prefetchData}
+      data-cacheBuseter={cacheBuster}
       onMouseOver$={[linkProps.onMouseOver$, handlePrefetch]}
       onFocus$={[linkProps.onFocus$, handlePrefetch]}
       // Don't prefetch on visible in dev mode
@@ -119,4 +126,5 @@ export interface LinkProps extends AnchorAttributes {
   reload?: boolean;
   replaceState?: boolean;
   scroll?: boolean;
+  cacheBuster?: string;
 }

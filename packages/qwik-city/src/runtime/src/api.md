@@ -263,6 +263,8 @@ export const Link: Component<LinkProps>;
 //
 // @public (undocumented)
 export interface LinkProps extends AnchorAttributes {
+    // (undocumented)
+    cacheBuster?: string;
     prefetch?: boolean | 'js';
     // (undocumented)
     reload?: boolean;
