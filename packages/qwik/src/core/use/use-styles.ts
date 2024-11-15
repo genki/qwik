@@ -8,6 +8,8 @@ import { isPromise } from '../util/promises';
 import { assertDefined } from '../error/assert';
 import { ComponentStylesPrefixContent } from '../util/markers';
 
+export * from './use-styles-scope';
+
 /** @public */
 export interface UseStylesScoped {
   scopeId: string;
@@ -119,7 +121,7 @@ export const useStylesScopedQrl = (styles: QRL<string>): UseStylesScoped => {
 // </docs>
 export const useStylesScoped$ = /*#__PURE__*/ implicit$FirstArg(useStylesScopedQrl);
 
-const _useStyles = (
+export const _useStyles = (
   styleQrl: QRL<string>,
   transform: (str: string, styleId: string) => string,
   scoped: boolean

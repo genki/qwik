@@ -3653,7 +3653,7 @@ Options for the prefetch service worker.
 </tbody></table>
 **Returns:**
 
-[JSXNode](#jsxnode)&lt;'script'&gt;
+JSXNode&lt;'script'&gt;
 
 [Edit this section](https://github.com/QwikDev/qwik/tree/main/packages/qwik/src/core/components/prefetch.ts)
 
@@ -11232,6 +11232,80 @@ styles
 [UseStylesScoped](#usestylesscoped)
 
 [Edit this section](https://github.com/QwikDev/qwik/tree/main/packages/qwik/src/core/use/use-styles.ts)
+
+## useStylesWithScope$
+
+```typescript
+useStylesWithScope$: (qrl: string) => UseStylesScoped;
+```
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+qrl
+
+</td><td>
+
+string
+
+</td><td>
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[UseStylesScoped](#usestylesscoped)
+
+[Edit this section](https://github.com/QwikDev/qwik/tree/main/packages/qwik/src/core/use/use-styles-scope.ts)
+
+## useStylesWithScopeQrl
+
+```typescript
+useStylesWithScopeQrl: (styles: QRL<string>) => UseStylesScoped;
+```
+
+<table><thead><tr><th>
+
+Parameter
+
+</th><th>
+
+Type
+
+</th><th>
+
+Description
+
+</th></tr></thead>
+<tbody><tr><td>
+
+styles
+
+</td><td>
+
+[QRL](#qrl)&lt;string&gt;
+
+</td><td>
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[UseStylesScoped](#usestylesscoped)
+
+[Edit this section](https://github.com/QwikDev/qwik/tree/main/packages/qwik/src/core/use/use-styles-scope.ts)
 
 ## useTask$
 
