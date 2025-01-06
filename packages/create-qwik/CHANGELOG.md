@@ -1,5 +1,9 @@
 # create-qwik
 
+## 1.12.0
+
+## 1.11.0
+
 ## 1.10.0
 
 ### Patch Changes
