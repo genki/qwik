@@ -452,7 +452,7 @@ export type DeferReturn<T> = () => Promise<T>;
 Deletes cookie value by name using the `Response` cookie header.
 
 ```typescript
-delete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite'>): void;
+delete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite' | 'secure'>): void;
 ```
 
 <table><thead><tr><th>
@@ -485,7 +485,7 @@ options
 
 </td><td>
 
-Pick&lt;[CookieOptions](#cookieoptions), 'path' \| 'domain' \| 'sameSite'&gt;
+Pick&lt;[CookieOptions](#cookieoptions), 'path' \| 'domain' \| 'sameSite' \| 'secure'&gt;
 
 </td><td>
 

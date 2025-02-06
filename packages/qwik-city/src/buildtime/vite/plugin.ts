@@ -284,8 +284,8 @@ function qwikCityPlugin(userOpts?: QwikCityVitePluginOptions): any {
                     swCode
                   );
                   if (swCodeUpdate) {
-                    await fs.promises.mkdir(clientOutDir, { recursive: true });
-                    await fs.promises.writeFile(swClientDistPath, swCodeUpdate);
+                    //await fs.promises.mkdir(clientOutDir, { recursive: true });
+                    //await fs.promises.writeFile(swClientDistPath, swCodeUpdate);
                   }
                 } catch (e2) {
                   console.error(e2);

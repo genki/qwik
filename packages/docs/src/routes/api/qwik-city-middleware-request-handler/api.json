@@ -148,7 +148,7 @@
         }
       ],
       "kind": "MethodSignature",
-      "content": "Deletes cookie value by name using the `Response` cookie header.\n\n\n```typescript\ndelete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite'>): void;\n```\n\n\n<table><thead><tr><th>\n\nParameter\n\n\n</th><th>\n\nType\n\n\n</th><th>\n\nDescription\n\n\n</th></tr></thead>\n<tbody><tr><td>\n\nname\n\n\n</td><td>\n\nstring\n\n\n</td><td>\n\n\n</td></tr>\n<tr><td>\n\noptions\n\n\n</td><td>\n\nPick&lt;[CookieOptions](#cookieoptions)<!-- -->, 'path' \\| 'domain' \\| 'sameSite'&gt;\n\n\n</td><td>\n\n_(Optional)_\n\n\n</td></tr>\n</tbody></table>\n**Returns:**\n\nvoid",
+      "content": "Deletes cookie value by name using the `Response` cookie header.\n\n\n```typescript\ndelete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite' | 'secure'>): void;\n```\n\n\n<table><thead><tr><th>\n\nParameter\n\n\n</th><th>\n\nType\n\n\n</th><th>\n\nDescription\n\n\n</th></tr></thead>\n<tbody><tr><td>\n\nname\n\n\n</td><td>\n\nstring\n\n\n</td><td>\n\n\n</td></tr>\n<tr><td>\n\noptions\n\n\n</td><td>\n\nPick&lt;[CookieOptions](#cookieoptions)<!-- -->, 'path' \\| 'domain' \\| 'sameSite' \\| 'secure'&gt;\n\n\n</td><td>\n\n_(Optional)_\n\n\n</td></tr>\n</tbody></table>\n**Returns:**\n\nvoid",
       "mdFile": "qwik-city.cookie.delete.md"
     },
     {

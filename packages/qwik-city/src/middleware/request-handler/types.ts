@@ -502,7 +502,7 @@ export interface Cookie {
    */
   append(name: string, value: string | number | Record<string, any>, options?: CookieOptions): void;
   /** Deletes cookie value by name using the `Response` cookie header. */
-  delete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite'>): void;
+  delete(name: string, options?: Pick<CookieOptions, 'path' | 'domain' | 'sameSite' | 'secure'>): void;
   /** Returns an array of all the set `Response` `Set-Cookie` header values. */
   headers(): string[];
 }
