@@ -176,6 +176,22 @@ export async function mainThread(sys: System) {
         const pageModule: PageModule = modules[modules.length - 1] as any;
         const paramNames = extractParamNames(routeName);
 
+        let locales;
+        const layoutModule = modules[0] as PageModule;
+        if (paramNames[0] === 'locale' && layoutModule.onStaticGenerate) {
+          paramNames.shift();
+          const staticGenerate = await layoutModule.onStaticGenerate({
+            env: {
+              get(key: string) {
+                return sys.getEnv(key);
+              },
+            },
+          });
+          if (Array.isArray(staticGenerate.params)) {
+            locales = staticGenerate.params;
+          }
+        }
+
         // if a module has a "default" export, it's a page module
         // if a module has a "onGet" or "onRequest" export, it's an endpoint module for static generation
         const isValidStaticModule =
@@ -202,6 +218,16 @@ export async function mainThread(sys: System) {
                   addToQueue(pathname, params);
                 }
               }
+            }
+          } else if (locales) {
+            // static route page module with locales
+            for (const params of locales) {
+              const pathname = getPathnameForDynamicRoute(
+                originalPathname!,
+                ['locale'],
+                params
+              );
+              addToQueue(pathname, params);
             }
           } else {
             // static route page module
